@@ -1,0 +1,16 @@
+\begin{table}[h]
+  \centering
+  \caption{A single-column table with more components.}
+  \resizebox{0.97\columnwidth}{!}{
+    \begin{tabular}{ccc|c|l|r}
+      \toprule
+      S1 & S2 & S3 & Value & Comment & Another Column \\
+      \midrule
+      -- & -- & $\checkmark$ & 1.23E4 & This is a comment. & A comment. \\
+      \cmidrule(lr){1-6}
+      -- & $\checkmark$ & $\checkmark$ & 1.23E4 & \makecell[cl]{This is a longer \\ text with two lines.} & Right-aligned texts. \\
+      \bottomrule
+    \end{tabular}
+  }
+  \label{tab:single}
+\end{table}

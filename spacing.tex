@@ -1,0 +1,48 @@
+\begin{enumerate}
+  \item \textbf{Vertical Spacing}:
+    Adjusting vertical spacing is quite important, as you will often have page limit issues.
+    Try not explicitly adjusting vertical spacing by, e.g., \texttt{vspace} and \texttt{vskip}, because it makes the PDF ugly and is difficult to track/control.
+    Instead, you may try:
+  \begin{itemize}
+    \item Reduce figure sizes and table sizes.
+    \item Change the position and layout of figures and tables.
+    \item Rephrase your texts, especially for paragraphs with a short last line. Then, you can save one line by removing/replacing several words/phrases.
+    \item Break multi-line math environments into smaller pieces, or manually set the new line/new page for them.
+    \item Iteratively try the above operations.
+  \end{itemize}
+
+  \item \textbf{Horizontal Spacing}:
+    Here are some use cases.
+  \begin{itemize}
+    \item For \textit{Subfigures}: Use \texttt{\char`\\hspace\{xx\}} to evenly place several figures.
+    \item In \textit{Equations}: Use `\texttt{\char`\\ }', `\texttt{\char`\\quad}', and `\texttt{\char`\\qquad}' for small, medium, and large horizontal spaces, respectively.
+  \end{itemize}
+
+  \item \textbf{Space between Words}:
+    Often ignored but important.
+  \begin{itemize}
+    \item For citation and reference, use `\texttt{\char`\~}' to connect it and the word before it. See Section~\ref{sec:citeref} for more details.
+    \item For abbrivations/explanations within parentheses, use `\texttt{\char`\~}' to connect it and the phrase before it. For example:
+    \begin{quote}\begin{scriptsize}
+      \begin{verbatim}
+Convolutional Neural Networks~(CNNs) are networks
+composed by a stack of convolution~(CONV) layers.
+      \end{verbatim}
+      
+      Convolutional Neural Networks~(CNNs) are networks composed by a stack of convolution~(CONV) layers.
+    \end{scriptsize}\end{quote}
+
+    \item Why using `\texttt{\char`\~}' instead of a simple space? It~(`\texttt{\char`\~}') leaves space between the two words and ensures the link break is not between the two words.
+  \end{itemize}
+
+  \item \textbf{New Line/Page}:
+  \begin{itemize}
+    \item Avoid to use `\texttt{\char`\\\char`\\}' for a new line in main text. (In tables/equations, it is fine.)
+    \item Use \texttt{\char`\\newpage} for a new column (in double-column papers), and \texttt{\char`\\clearpage} for a new page.
+    \begin{itemize}
+      \item When drafting, put \texttt{\char`\\clearpage} before the reference section, and put \texttt{\char`\\newpage} between an incomplete section and its following section. It helps you better estimate the paper length and place the (tables/figures) contents.
+    \end{itemize}
+  \end{itemize}
+
+
+\end{enumerate}

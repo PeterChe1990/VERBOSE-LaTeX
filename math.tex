@@ -1,0 +1,60 @@
+\begin{itemize}
+  \item
+    Use $\max$, $\min$, $\arg \max$, $\tanh$, $\exp$; Not $max$, $min$, $argmax$, $tanh$, $exp$. (I.e., \texttt{\char`\\ op} rather than \texttt{op})
+  \item For loss: $\mathcal{L} = \lambda_1 \ell_1 + \lambda_2 \ell_2$.
+  \item
+    Use \texttt{\char`\\left} and \texttt{\char`\\right} for parentheses properly:
+  \begin{quote}\begin{scriptsize}
+    \begin{verbatim}
+T = F\left( H(x) + y^2 \right)
+    \end{verbatim}
+    \begin{equation}
+      T = F\left( H(x) + y^2 \right)
+    \end{equation}
+  \end{scriptsize}\end{quote}
+    and here is a wrong example:
+  \begin{quote}\begin{scriptsize}
+    \begin{verbatim}
+T = F(H(x) + y^2)
+    \end{verbatim}
+
+    \begin{equation}
+      T = F(H(x) + y^2)
+    \end{equation}
+  \end{scriptsize}\end{quote}
+
+  \item Distinguish variables/functions (use math fonts) and texts (use text fonts) in equations\footnote[2]{
+      See \url{https://www.linkedin.com/pulse/when-italicize-math-expression-hamed-keramati/} for more details.
+    }. For example:
+  \begin{quote}\begin{scriptsize}
+    \begin{verbatim}
+v_{\text{enc}} = \sum_{i, j} F( W_{i, j}, i \cdot j)
+    \end{verbatim}
+
+    \begin{equation}
+      v_{\text{enc}} = \sum_{i, j} F( W_{i, j}, i \cdot j)
+    \end{equation}
+  \end{scriptsize}\end{quote}
+
+
+  \item
+    Make sure equations are aligned (`\texttt{\&}') before/after the equal signs;
+    Use \texttt{\char`\\nonumber} for no-numbered equations.
+    See the example below:
+  \begin{quote}\begin{scriptsize}
+    \begin{verbatim}
+\vct{a}_{i}^{m} & = \mat{W}_{3} \tanh \left(\mat{W}_{1}
+\vct{h} + {\mat{W}_{2}}\T \mat{M}_{i}^{k} \right) \\
+\hat{\vct{a}}^{m} & = \text{softmax} \left( \vct{a}^{m}
+\right) \nonumber
+    \end{verbatim}
+
+    \begin{align}
+      \vct{a}_{i}^{m} & = \mat{W}_{3} \tanh \left(\mat{W}_{1} \vct{h} + {\mat{W}_{2}}\T \mat{M}_{i}^{k} \right) \\
+      \hat{\vct{a}}^{m} & = \text{softmax} \left(\vct{a}^{m}\right) \nonumber
+    \end{align}
+  \end{scriptsize}\end{quote}
+
+\end{itemize}
+
+\textit{Remark: This section is expected to expand, if necessary.} 

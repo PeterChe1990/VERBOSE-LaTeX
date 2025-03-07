@@ -1,0 +1,51 @@
+\begin{enumerate}
+  \item
+    For \textbf{label}: Use \texttt{\char`\\label\{type:name-in-smallcase\}}.
+    \texttt{type} can be \texttt{fig/tab/alg/eq/sec/thm} for figures/tables/algorithms/equations/(sub)sections/theorems.
+
+  \item For \textbf{ref}:
+    For equations, use \texttt{\char`\\eqref\{$\cdot$\}}. For others, use \texttt{\char`\\ref\{$\cdot$\}}.
+
+  \item
+    You can use either full names or abbreviations, but be consistent in the same label type.
+    For example:
+  \begin{quote}\begin{scriptsize}
+    \begin{verbatim}
+Figure~\ref{fig:double} shows a double-column figure,
+and Figure~\ref{fig:single} shows a single-column figure.
+
+Figures~\ref{fig:grid-left-most},
+\ref{fig:grid-middle-left}, \ref{fig:grid-middle-right},
+and~\ref{fig:grid-right-most} are the four subfigures.
+
+In Section~\ref{sec:citeref}, there are two subsections:
+Sections~\ref{sec:citations} and~\ref{sec:references}.
+    \end{verbatim}
+     Figure~\ref{fig:double} shows a double-column figure, and Figure~\ref{fig:single} shows a single-column figure.
+
+    Figures~\ref{fig:grid-left-most}, \ref{fig:grid-middle-left}, \ref{fig:grid-middle-right}, and~\ref{fig:grid-right-most} are the four subfigures.
+
+    In Section~\ref{sec:citeref}, there are two subsections: Sections~\ref{sec:citations} and~\ref{sec:references}.
+  \end{scriptsize}\end{quote}
+
+    Or:
+  \begin{quote}\begin{scriptsize}
+    \begin{verbatim}
+Fig.\ref{fig:double} shows a double-column figure,
+and Fig.\ref{fig:single} shows a single-column figure.
+
+Figs.\ref{fig:grid-left-most},
+\ref{fig:grid-middle-left}, \ref{fig:grid-middle-right},
+and~\ref{fig:grid-right-most} are the four subfigures.
+
+In Sec.\ref{sec:citeref}, there are two subsections:
+Secs.\ref{sec:citations} and~\ref{sec:references}.
+    \end{verbatim}
+    Fig.\ref{fig:double} shows a double-column figure, and Fig.\ref{fig:single} shows a single-column figure.
+
+    Figs.\ref{fig:grid-left-most}, \ref{fig:grid-middle-left}, \ref{fig:grid-middle-right}, and~\ref{fig:grid-right-most} are the four subfigures.
+
+    In Sec.\ref{sec:citeref}, there are two subsections: Secs.\ref{sec:citations} and~\ref{sec:references}.
+  \end{scriptsize}\end{quote}
+
+\end{enumerate}

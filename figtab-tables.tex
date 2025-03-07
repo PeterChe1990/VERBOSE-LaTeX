@@ -1,0 +1,171 @@
+
+A few examples: (You may skip these examples.)
+
+\begin{itemize}
+  \item A (quite common) double-column table.
+  \begin{quote}\begin{scriptsize}\begin{verbatim}
+\begin{table*}[t]
+  \centering
+  \caption{A double-column table with several useful modules (multiple rows/columns, different lines, etc.)}
+  %\resizebox{0.99\linewidth}{!}{
+    \begin{tabular}{cl|cc|cc|ccc}
+      \toprule
+      \multicolumn{2}{c|}{\multirow{2}{*}{Multi-Row \& Multi-Column}} & \multicolumn{2}{c|}{Setting-1}
+          & \multicolumn{2}{c|}{Setting-2} &  \multicolumn{3}{c}{Setting-3} \\
+      & & Col-1-1 & Col-1-2 & Col-2-1 & Col-2-2 & Col-3-1 & Col-3-2 & Col-3-3 \\
+      \midrule
+      \multirow{4.5}{*}{Dataset-1} & Method~1 & 1.234 & 1.234 & 1.234 & 1.234 & 1.234 & 1.234 & 1.234 \\
+      & Method~2 & 1.234 & 1.234 & -- & -- & 1.234 & 1.234 & 1.234 \\
+      & The Strongest Baseline & 7.890 & 7.890 & 7.890 & 7.890 & 7.890 & 7.890 & 7.890 \\
+      \cmidrule(lr){2-9}
+      & \textbf{Ours} & \textbf{9.876} & \textbf{9.876} & \textbf{9.876} & \textbf{9.876}
+          & \textbf{9.876} & \textbf{9.876} & \textbf{9.876} \\
+      \cmidrule{1-9}
+      \multirow{2.5}{*}{Dataset-2} & A Weak Baseline & 1.234 & 1.234 & 1.234 & 1.234
+          & 1.234 & 1.234 & 1.234 \\
+      \cmidrule(lr){2-9}
+      & \textbf{Ours} & \textbf{9.876} & \textbf{9.876} & \textbf{9.876} & \textbf{9.876}
+          & \textbf{9.876} & \textbf{9.876} & \textbf{9.876} \\
+      \bottomrule
+    \end{tabular}
+  %}
+  \label{tab:double}
+\end{table*}
+  \end{verbatim}\end{scriptsize}\end{quote}
+
+  \item A single-column table.
+  \begin{quote}\begin{scriptsize}\begin{verbatim}
+\begin{table}[h]
+  \centering
+  \caption{A single-column table with more components.}
+  \resizebox{0.97\columnwidth}{!}{
+    \begin{tabular}{ccc|c|l|r}
+      \toprule
+      S1 & S2 & S3 & Value & Comment & Another Column \\
+      \midrule
+      -- & -- & $\checkmark$ & 1.23E4 & This is a comment. & A comment. \\
+      \cmidrule(lr){1-6}
+      -- & $\checkmark$ & $\checkmark$ & 1.23E4 & \makecell[cl]{This is a longer \\ text with two lines.}
+          & Right-aligned texts. \\
+      \bottomrule
+    \end{tabular}
+  }
+  \label{tab:single}
+\end{table}
+  \end{verbatim}\end{scriptsize}\end{quote}
+
+\end{itemize}
+
+\twocolumn
+
+\input{table/1-exmaple-double.tex}
+
+\input{table/2-exmaple-single.tex}
+
+
+\begin{enumerate}
+  \item \textbf{Separated Files}:
+    Put each table or a group of consecutive tables (that are expected to be placed together) into a separate \texttt{.tex} file.
+    Name the tex file as \texttt{tab-xxx.tex}, or put all these tex files into a folder named \texttt{./table/}.
+
+  \item \textbf{One/Two-Column}:
+    For a two-column PDF, use \texttt{table} to create a single-column figure~(Table~\ref{tab:single}), and use \texttt{table*} to create a double-column table~(Table~\ref{tab:double}).
+    For a single-column PDF, use the two environments interchangeably.
+
+  \item \textbf{Position}:
+    Same as figures.
+
+  \item \textbf{Centering}:
+    Same as figures.
+
+  \item \textbf{Table Size}:
+  \begin{itemize}
+    \item
+      Use \texttt{\char`\\resizebox\{xx\}\{!\}\{...\}}, to set the table width.
+      Here, \texttt{xx} can be a fraction of \texttt{\char`\\columnwidth} (for single-column tables), \texttt{\char`\\textwidth}, and \texttt{\char`\\linewidth} (for double-column figures).
+    \item
+      Following common practice, adjust the table size to make the table font size \textit{slightly smaller} than the main text.
+      Not too small nor too large.
+    \item
+      Always keep the \texttt{\char`\\resizebox} lines in your TeX file; If you do not want to adjust the table size, simply comment it out rather than deleting it.
+      
+    \item To make tables in multiple pages, use the package \texttt{longtable}.
+    \begin{itemize}
+      \item  Use \texttt{\char`\\\char`\\\char`\*} to enforce (mid/cmid/top/bottom-) rules not being pushed to the next page.
+    \end{itemize}
+
+  \end{itemize}
+
+  \item \textbf{Captions \& Labels}:
+  \begin{itemize}
+    \item The captions/subcaptions can either be a phrase, a sentences, or multiple sentences. A sentence-ending period is needed.
+    \item The captions are usually above the tables. Some venues require captions being below the tables. Please stick to the venues' provided templates.
+    \item If any texts or figure parts are not described, you should describe them in the caption.
+    \item For caption labels, refer to Section~\ref{sec:references}.
+  \end{itemize}
+
+  \item \textbf{Alignment}:
+    For each column, use \texttt{l/c/r} to left/center/right-align the contents.
+
+  \item \textbf{Multiple Columns/Rows}:
+  \begin{itemize}
+    \item
+      \texttt{\char`\\multicolumn\{x\}\{y\}\{...\}}: For cells with $>1$ columns.
+      The parameters are:
+    \begin{itemize}
+      \item \texttt{x}: \# of columns;
+      \item \texttt{y}: alignment (\texttt{l/c/r}) and vertical lines.
+    \end{itemize}
+    \item
+      \texttt{\char`\\multirow\{x\}\{y\}\{...\}}: For cells with $>1$ rows.
+      The parameters are:
+    \begin{itemize}
+      \item \texttt{x}: \# of rows (can be non-integer);
+      \item \texttt{y}: width (by default `\texttt{*}').
+    \end{itemize}
+    \item For cells with both $>1$ columns and $>1$ rows: Use nested \texttt{\char`\\multicolumn} and \texttt{\char`\\multirow}.
+    \item
+      \texttt{\char`\\makecell[xy]\{...\}}: For multilined cells.
+      The parameters are:
+    \begin{itemize}
+      \item \texttt{x}: vertical alignment (\texttt{t/c/b});
+      \item \texttt{y}: horizontal alignment (\texttt{l/c/r}).
+    \end{itemize}
+  \end{itemize}
+
+  \item \textbf{Horizontal Lines (Rules)}: For examples, see Table~\ref{tab:double}.
+  \begin{itemize}
+    \item
+      Use rules from the \texttt{booktabs} package rather than lines: \texttt{\char`\\toprule}, \texttt{\char`\\midrule}, \texttt{\char`\\bottomrule}, and \texttt{\char`\\cmidrule}.
+    \item
+      Put one and only one \texttt{\char`\\toprule}/\texttt{\char`\\bottomrule} at the very top/bottom of the table.
+      They are thicker solid lines and properly aligned.
+    \item
+      Use one \texttt{\char`\\midrule} to separate the header and the body.
+      It is thinner than the top/bottom rules.
+    \item
+      Use \texttt{\char`\\cmidrule\{x-y\}} to separate different settings (blocks of lines).
+      This line starts from \texttt{x}-th column and ends at \texttt{y}-th column.
+    \item
+      Use \texttt{\char`\\cmidrule(lr)\{x-y\}} to separate our method and the others.
+      Only used if necessary.
+      \texttt{lr} means the line trims in the left/right.
+
+  \end{itemize}
+
+  \item \textbf{Vertical Lines}:
+    `\texttt{|}'. Use it seldomly.
+    \texttt{\char`\\multicolumn} overrides the table-level vertical lines for the spanned columns, so you need to add the vertical line argument in it. See Table~\ref{tab:double} as an example.
+
+  \item \textbf{Texts and Numbers}:
+  \begin{itemize}
+    \item Make sure numbers (for the same metric) have the same number of decimal places.
+    \item
+      Put numbers in text mode, and use \texttt{\char`\\textbf} and \texttt{\char`\\textit} to emphasize.
+      Otherwise, if you would like to put number is math mode (within \texttt{\$...\$}), use \texttt{\char`\\mathbf} and  \texttt{\char`\\mathit} to emphasize.
+      Make sure your choice is consistent. The former one is preferred.
+  \end{itemize}
+
+\end{enumerate}
+
+

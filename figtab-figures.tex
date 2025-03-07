@@ -1,0 +1,160 @@
+A few examples: (You may skip these examples.)
+
+\begin{itemize}
+  \item The most common single-column figure.
+    \begin{quote}\begin{scriptsize}\begin{verbatim}
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=.9\columnwidth]{fig/fig1.pdf}
+  \caption{An example of a single-column figure.}
+  \label{fig:single}
+\end{figure}
+    \end{verbatim}\end{scriptsize}\end{quote}
+
+  \item A two-column figure.
+    \begin{quote}\begin{scriptsize}\begin{verbatim}
+\begin{figure*}[t]
+  \centering
+  \includegraphics[width=.95\linewidth]{fig/fig1.pdf}
+  \caption{An example of a two-column figure at top.}
+  \label{fig:double}
+\end{figure*}
+    \end{verbatim}\end{scriptsize}\end{quote}
+
+  \item Multiple figures in a row (in two ways).
+    \begin{quote}\begin{scriptsize}\begin{verbatim}
+\begin{figure}[h!]
+  \centering
+  \begin{subfigure}[b]{0.39\columnwidth}
+    \centering
+    \includegraphics[width=.3\textwidth]{fig/fig1.pdf}
+    \caption{Left.}
+    \label{fig:subcaption-two-inner-left}
+  \end{subfigure}
+  \begin{subfigure}[b]{0.59\columnwidth}
+    \centering
+    \includegraphics[width=.5\textwidth]{fig/fig1.pdf}
+    \caption{Right.}
+    \label{fig:subcaption-two-inner-right}
+  \end{subfigure}
+  \caption{The outer caption of the two figures.}
+  \label{fig:subcaption}
+\end{figure}
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=.12\columnwidth]{fig/fig1.pdf}
+  \hspace{.1in}
+  \includegraphics[width=.3\columnwidth]{fig/fig1.pdf}
+  \hspace{.1in}
+  \includegraphics[width=.12\columnwidth]{fig/fig1.pdf}
+  \caption{Multiple figures without subcaption.}
+  \label{fig:multiple}
+\end{figure}
+    \end{verbatim}\end{scriptsize}\end{quote}
+
+  \item Figures in a $4 \times 2$ grid.
+    \begin{quote}\begin{scriptsize}\begin{verbatim}
+\begin{figure}[h!]
+  \centering
+  \begin{subfigure}[b]{0.24\columnwidth}
+    \centering
+    \includegraphics[width=1\textwidth]{fig/fig1.pdf}\\
+    \includegraphics[width=1\textwidth]{fig/fig1.pdf}
+    \caption{LM.}
+    \label{fig:grid-left-most}
+  \end{subfigure}
+  \begin{subfigure}[b]{0.24\columnwidth}
+    \centering
+    \includegraphics[width=1\textwidth]{fig/fig1.pdf}\\
+    \includegraphics[width=1\textwidth]{fig/fig1.pdf}
+    \caption{L.}
+    \label{fig:grid-middle-left}
+  \end{subfigure}
+  \begin{subfigure}[b]{0.24\columnwidth}
+    \centering
+    \includegraphics[width=1\textwidth]{fig/fig1.pdf}\\
+    \includegraphics[width=1\textwidth]{fig/fig1.pdf}
+    \caption{R.}
+    \label{fig:grid-middle-right}
+  \end{subfigure}
+  \begin{subfigure}[b]{0.24\columnwidth}
+    \centering
+    \includegraphics[width=1\textwidth]{fig/fig1.pdf}\\
+    \includegraphics[width=1\textwidth]{fig/fig1.pdf}
+    \caption{RM.}
+    \label{fig:grid-right-most}
+  \end{subfigure}
+  \caption{Multiple figures in grid.}
+  \label{fig:grid}
+\end{figure}
+    \end{verbatim}\end{scriptsize}\end{quote}
+
+\end{itemize}
+
+\input{figure/1-example-single.tex}
+\input{figure/2-example-two-column-top.tex}
+\input{figure/3-example-one-caption-for-all.tex}
+\input{figure/4-example-no-subcaption.tex}
+\input{figure/5-example-grid-figure.tex}
+
+
+\begin{enumerate}
+  \item \textbf{Separated Files}:
+    Put each figure or a group of consecutive figures (that are expected to be placed together) into a separate \texttt{.tex} file.
+    \footnote{Moving one line (\texttt{\char`\\input\{xxx.tex\}}) around is much easier and cleaner than moving a long scripts.}
+    It is suggested to name the tex file as \texttt{fig-xxx.tex} where \texttt{xxx} is the same as the figure file name, or put all these tex files into a folder named \texttt{./figure/}.
+
+  \item Before you put the figures in tex files:
+    \begin{itemize}
+      \item \textbf{File Type}:
+        Export your figures as \textbf{PDF} files with \textit{font embedded}. No \textit{.png} nor \textit{.jpg}.
+        Some journals require \textit{.eps} for the camera ready, and you can convert PDF files into EPS files by the \texttt{pdftops} command.
+  
+      \item Please \textbf{embed the fonts} in the figures. Serif typefaces are preferred. Double check the contents to be properly rescaled, capitalized, and with no typos.
+  
+      \item Do \textbf{NOT} use \texttt{crop} in {\LaTeX}. You can use the bash command \texttt{pdfcrop} (Installed with TeX) to remove margins or edit figures in Painter/PowerPoint.
+    \end{itemize}
+
+  \item \textbf{One/Two-Column}:
+    For a two-column PDF, use \texttt{figure} to create a single-column figure~(Figure~\ref{fig:single}), and use \texttt{figure*} to create a double-column figure~(Figure~\ref{fig:double}).
+    For a single-column PDF, use the two environments interchangeably.
+
+  \item \textbf{Position}:
+    Use \texttt{h/t/b} to place the figure here/at page top/at page bottom. `\texttt{!}' enforces your option.
+
+    \begin{itemize}
+      \item Notice how {\LaTeX} places figures: It tries to firstly settle down all TeX codes before this figure.
+        Then, it tries to fit this figure with the position command (\texttt{h/t/b}).
+        If the figure can not be put on this page, it will be put on the next page \textbf{and} after/below all previous figures.
+        Therefore, a figure often shows later than where you want; And you need to manually move ahead this figure's TeX code.
+    \end{itemize}
+
+  \item \textbf{Centering}:
+    Always center your figures. Use \texttt{\char`\\centering} instead of \texttt{\char`\\begin\{center\}}.\
+    \footnote{The latter one brings undesired extra vertical spaces.}
+
+  \item \textbf{Figure Size}:
+    Use \texttt{[width=xx]} to set the figure width.
+    Here, \texttt{xx} can be a fraction of \texttt{\char`\\columnwidth} (for single-column figures), \texttt{\char`\\textwidth}, and \texttt{\char`\\linewidth} (for double-column figures).
+
+  \item \textbf{Captions \& Labels}:
+    \begin{itemize}
+      \item The captions/subcaptions can either be a phrase, a sentences, or multiple sentences. A sentence-ending period is needed.
+      \item The captions are always under the figures.
+      \item If any texts or figure parts are not described, you should describe them in the caption.
+      \item For caption labels, refer to Section~\ref{sec:references}.
+    \end{itemize}
+
+  \item \textbf{Subplots}:
+    \begin{itemize}
+      \item Use package \texttt{subcaption} if you want to use captions for subplots~(Figures~\ref{fig:subcaption} and~\ref{fig:grid}); For subplots without captions, simply use multiple \texttt{\char`\\includegraphics}~(Figures~\ref{fig:multiple} and~\ref{fig:grid}).
+      \item Make sure the summed up width is less than 1 columnwidth/linewidth for single/double-column figures; Otherwise, the figures won't be on a single line.
+      \item You may adjust the spaces between figures by inserting \texttt{\char`\\hspace\{\}}. Please put them evenly.
+    \end{itemize}
+
+  \item \textbf{Warning}:
+    \begin{itemize}
+      \item To suppress warnings on multiple page groups: include \texttt{\char`\\pdfsuppresswarningpagegroup=1}.
+    \end{itemize}
+\end{enumerate}

@@ -1,0 +1,17 @@
+\begin{enumerate}
+  \item Do \textbf{NOT} sync cache and produced files. You can refer to \texttt{.gitignore} for more details. To list a few:
+  \begin{enumerate}
+    \item 
+      Do not sync your produced PDF file, e.g., \texttt{main.pdf} or \texttt{supp.pdf}. 
+      You can, however, back up files by renaming it or using git.
+    \item Do not sync the temporary files, e.g., \texttt{.*(buzy)} or \texttt{\texttildelow\$*.docx/.xlsx/.pptx} (office temporary files).
+    \item
+      Regularly clean and not sync the intermediate produced files, e.g., \texttt{.aux/.bbl/.blg}. 
+      Refer to \texttt{clean.bat}.
+      This may help if you have failed in compiling the tex files.
+  \end{enumerate}
+  \item Put each sentence in one line in \texttt{.tex} file, so that others can modify the content easily.
+  \item 
+    Comment out unused contents and do not delete them, as they may be reused later.
+    However, for your arXiv submission or other submissions with tex files, do remove all comments.
+\end{enumerate}

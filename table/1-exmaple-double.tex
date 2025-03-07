@@ -1,0 +1,23 @@
+\begin{table*}[t]
+  \centering
+  \caption{A double-column table with several useful modules (multiple rows/columns, different lines, etc.)}
+  %\resizebox{0.99\linewidth}{!}{
+    \begin{tabular}{cl|cc|cc|ccc}
+      \toprule
+      \multicolumn{2}{c|}{\multirow{2}{*}{Multi-Row \& Multi-Column}} & \multicolumn{2}{c|}{Setting-1} & \multicolumn{2}{c|}{Setting-2} &  \multicolumn{3}{c}{Setting-3} \\
+      & & Col-1-1 & Col-1-2 & Col-2-1 & Col-2-2 & Col-3-1 & Col-3-2 & Col-3-3 \\
+      \midrule
+      \multirow{4.5}{*}{Dataset-1} & Method~1 & 1.234 & 1.234 & 1.234 & 1.234 & 1.234 & 1.234 & 1.234 \\
+      & Method~2 & 1.234 & 1.234 & -- & -- & 1.234 & 1.234 & 1.234 \\
+      & The Strongest Baseline & 7.890 & 7.890 & 7.890 & 7.890 & 7.890 & 7.890 & 7.890 \\
+      \cmidrule(lr){2-9}
+      & \textbf{Ours} & \textbf{9.876} & \textbf{9.876} & \textbf{9.876} & \textbf{9.876} & \textbf{9.876} & \textbf{9.876} & \textbf{9.876} \\
+      \cmidrule{1-9}
+      \multirow{2.5}{*}{Dataset-2} & A Weak Baseline & 1.234 & 1.234 & 1.234 & 1.234 & 1.234 & 1.234 & 1.234 \\
+      \cmidrule(lr){2-9}
+      & \textbf{Ours} & \textbf{9.876} & \textbf{9.876} & \textbf{9.876} & \textbf{9.876} & \textbf{9.876} & \textbf{9.876} & \textbf{9.876} \\
+      \bottomrule
+    \end{tabular}
+  %}
+  \label{tab:double}
+\end{table*}

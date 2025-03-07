@@ -1,0 +1,102 @@
+Use a single file (e.g., \texttt{macro.tex}) for all user-defined common commands. Keep and expand this file towards your Swiss Army Knife.
+Here I summarize a few useful tips.
+
+\textbf{For full details please refer to} \texttt{macro.tex}.
+
+\begin{itemize}
+  \item Put \texttt{\char`\\input\{macro.tex\}} in the main tex file, after all packages and commands provided by conference/journal template and before \texttt{\char`\\begin\{document\}}.
+  \item What we should put in the \texttt{macro.tex} file (in the following orders):
+  \begin{enumerate}
+    \item \textit{Packages} to be used.
+    \item \textit{General commands} for all papers. E.g., math, format, editing, and rebuttal. They're rarely modified.
+    \item \textit{Special commands} for this paper only: definitions of terms/abbrivations, shortcuts for frequently-used math variables, hacks of length/margin settings, etc.
+  \end{enumerate}
+
+  \item \textbf{Packages}:
+  \begin{itemize}
+    \item To use new packages:
+    \begin{quote}\begin{scriptsize}\begin{verbatim}
+\usepackage[OPTIONS]{PACKAGENAME}
+    \end{verbatim}\end{scriptsize}\end{quote}
+
+    \item Make sure the used packages are allowed by the conference/journal template.
+  \end{itemize}
+
+  \item \textbf{Commands}:
+  \begin{itemize}
+    \item To define new commands:
+    \begin{quote}\begin{scriptsize}\begin{verbatim}
+\newcommand{\COMMANDNAME}[NUMBER]{DEFINITION}
+\renewcommand{\COMMANDNAME}[NUMBER]{DEFINITION}
+\def\COMMANDNAME{DEFINITION}    % Less used.
+    \end{verbatim}\end{scriptsize}\end{quote}
+
+    \begin{itemize}
+      \item Use \texttt{\char`\\newcommand} for new commands, and \texttt{\char`\\newcommand} for overriding existing commands.
+      \item \texttt{NUMBER} is the number of parameters for the command (default value: 0).
+      \item Use `\#$x$' for $x$-th parameter in the definition.
+
+      \item
+        Use new commands for model names, module names, etc.
+        Thus, you only need to change it once in the command definition, without seeking it at all places (slow and error-prone).
+        See the example below.
+      \begin{quote}\begin{scriptsize}
+        \begin{verbatim}
+We propose a novel model, named {\ourslong}~(\ours),
+which, however, sounds boring and performs poorly.
+        \end{verbatim}
+
+        We propose a novel model, named {\ourslong}~(\ours), which, however, sounds boring and performs poorly.
+      \end{scriptsize}\end{quote}
+
+      \item 
+        When using the command in texts, a pair of bracket is needed, so that a proper space is inserted. 
+        Otherwise, \texttt{\char`\\xspace} can be used.
+        See the examples below.
+
+      \begin{quote}\begin{scriptsize}
+        \begin{verbatim}
+The use of \ours is wrong. That of {\ours} is right.
+The use of \oursx is easy but risky.
+        \end{verbatim}
+        The use of \ours is wrong. That of {\ours} is right.
+        The use of \oursx is easy but risky.
+      \end{scriptsize}\end{quote}
+
+      \end{itemize}
+    \end{itemize}
+
+  \item
+    Commands for editing and commenting:
+    E.g., \texttt{\char`\\todo} for \todo{mild reminders} and \texttt{\char`\\TODO} for \TODO{Critical Issues}.
+    Also, define personal comment command for each collaborator (with different colors), e.g., \texttt{\char`\\zc} \zc{for me}.
+
+  \item Command for the 3rd level headline:
+    While \texttt{\char`\\section} and \texttt{\char`\\subsection} are used for the top-2 level headlines,
+    three variations of \texttt{\char`\\para} are provided for the 3rd level headline.
+    You can switch among them to get different (wide/compact) spacing. To see the differences:
+
+  {
+    \hrulefill
+
+      \subsubsection{Caption by Subsubsection} This is formal and takes a lot of space.
+
+      \paragraph{Caption by Paragraph} This is commonly used.
+
+      \noindent\textbf{Caption by Textbf.\ } This is the most compact one.
+
+    \hrulefill
+  }
+
+  \item Commands for rebuttal: Some conferences require a single-page PDF for rebuttal; Use \texttt{\char`\\question} to refer to the reviewer's question.
+  \begin{quote}\begin{scriptsize}
+    \begin{verbatim}
+\question{R1Q2}{important baseline xxx} We
+compared it, and new results are ...
+    \end{verbatim}
+    \question{R1Q2}{important baseline xxx} We compared it, and new results are ...
+  \end{scriptsize}\end{quote}
+
+  \item Commands for revision: use \texttt{\char`\\dif} to mark the updates differences/updates of the revision compared to the original manuscript. Useful for journal resubmissions.
+
+\end{itemize} 

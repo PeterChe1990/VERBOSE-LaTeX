@@ -1,0 +1,33 @@
+\begin{enumerate}
+  \item If the \texttt{natbib} package is used (which is common for most conferences), please take care of \texttt{\char`\\citet\{\}} and \texttt{\char`\\citep\{\}}: Use \texttt{\char`\\citet\{\}} if the citation itself is a component of the sentence (e.g., subject or object); otherwise use \texttt{\char`\\citep\{\}}, with `\texttt{\char`\~}' to connect it and the word before it. For example:
+  \begin{quote}\begin{scriptsize}
+    \begin{verbatim}
+Unlike \citet{radford:2018}, which uses
+unidirectional language models for pre-training,
+BERT uses masked language models to enable
+pre-trained deep bidirectional representations.
+
+ELMo advances the state of the art for several
+major NLP benchmarks~\citep{peters:2018}
+including question answering~\citep{raj-etal:2016},
+sentiment analysis~\citep{socher-etal:2013:_recur},
+and named entity recognition~\citep{tjong-de:2003}.
+    \end{verbatim}
+    Unlike \citet{radford:2018}, which uses unidirectional language models for pre-training, BERT uses masked language models to enable pre-trained deep bidirectional representations.
+
+    ELMo advances the state of the art for several major NLP benchmarks~\citep{peters:2018} including question answering~\citep{raj-etal:2016}, sentiment analysis~\citep{socher-etal:2013:_recur}, and named entity recognition~\citep{tjong-de:2003}.
+  \end{scriptsize}\end{quote}
+
+  \item If you have multiple citations at the same place, order them chronologically; and do \textit{not} put space between them. For example:
+  \begin{quote}\begin{scriptsize}
+    \begin{verbatim}
+Language model pre-training has been shown to be
+effective for many natural language processing
+tasks~\cite{dai:2015,peters:2018,radford:2018}.
+    \end{verbatim}
+
+    Language model pre-training has been shown to be effective for many natural language processing tasks~\cite{dai:2015,peters:2018,radford:2018}.
+  \end{scriptsize}\end{quote}
+
+  \item Avoid citing arXiv versions, and try using proceeding (conference/workshop/journal/or even tech report) version. If \url{https://scholar.google.com} does not have non-arXiv \texttt{bibtex}, try \url{https://dblp.org}.
+\end{enumerate}

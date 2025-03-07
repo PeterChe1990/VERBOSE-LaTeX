@@ -1,0 +1,75 @@
+\begin{enumerate}
+  \item Put contents into \textit{different files} instead of a single file. Use \texttt{\char`\\input\{xxx.tex\}} to include other latex files.
+
+  \item \textbf{File Path}:
+    To avoid potential path issues, put all \texttt{.tex} files in the root directory;
+    Put figures in a separate directory (e.g., \texttt{./fig/}). Put tex files containing tables and figures in separate directories (e.g., \texttt{./figure/} and \texttt{./table/}, respectively).
+
+  \item \textbf{File Naming}: Keep the file name:
+    \begin{enumerate}
+      \item composed by meaningful prefix and words,
+      \item all in small characters,
+      \item connected by hyphen (\texttt{-}), and
+      \item has no space nor underscore (\texttt{\_}).
+    \end{enumerate}
+
+  \item For example, your file structure may be like:
+
+    \begin{scriptsize}
+      \dirtree{%
+        .1 ./.
+        .2 fig/.
+        .3 1-main-histogram.pdf.
+        .3 2-visual-data1.pdf.
+        .3 3-visual-data2.pdf.
+        .3 ....
+        .2 figure/.
+        .3 1-main-histogram.tex.
+        .3 2-visual-data1.tex.
+        .3 3-visual-data2.tex.
+        .3 ....
+        .2 table/.
+        .3 1-main-table.tex.
+        .3 2-ablation-study.tex.
+        .3 ....
+        .2 main.tex.
+        .2 main.bib.
+        .2 intro.tex.
+        .2 related.tex.
+        .2 method.tex.
+        .2 method-overall.tex.
+        .2 method-formulation.tex.
+        .2 method-coremodule.tex.
+        .2 exp.tex.
+        .2 ....
+      }
+    \end{scriptsize}
+    and in \texttt{main.tex} you may have something like: (use blank lines properly)
+    \begin{quote}\begin{scriptsize}\begin{verbatim}
+...
+
+\section{Introduction}
+\input{intro.tex}
+
+\section{Related Work}
+\input{related.tex}
+
+\section{Methodology}
+\input{method.tex}
+
+...
+    \end{verbatim}\end{scriptsize}\end{quote}
+    and in \texttt{method.tex} you may have:
+    \begin{quote}\begin{scriptsize}\begin{verbatim}
+\input{method-overall.tex}
+
+\subsection{Formulation}
+\input{method-formulation.tex}
+
+\section{The XXX Method}
+\input{method-coremodule.tex}
+
+...
+    \end{verbatim}\end{scriptsize}\end{quote}
+
+\end{enumerate}

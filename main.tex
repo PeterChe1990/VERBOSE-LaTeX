@@ -1,0 +1,99 @@
+%\def\year{2022}\relax
+% Modified based on the AAAI'22 template file (release 2022.1)
+%%%% All the following are from the AAAI'22 template (with minor changes): Please DO NOT change and NO further changes are needed
+\documentclass[letterpaper]{article} % DO NOT CHANGE THIS
+\usepackage{aaai22}  % DO NOT CHANGE THIS
+\usepackage{times}  % DO NOT CHANGE THIS
+\usepackage{helvet}  % DO NOT CHANGE THIS
+\usepackage{courier}  % DO NOT CHANGE THIS
+\usepackage[hyphens]{url}  % DO NOT CHANGE THIS
+\usepackage{graphicx} % DO NOT CHANGE THIS
+\urlstyle{rm} % DO NOT CHANGE THIS
+\def\UrlFont{\rm}  % DO NOT CHANGE THIS
+\usepackage{caption} % DO NOT CHANGE THIS AND DO NOT ADD ANY OPTIONS TO IT
+\DeclareCaptionStyle{ruled}{labelfont=normalfont,labelsep=colon,strut=off} % DO NOT CHANGE THIS
+\frenchspacing  % DO NOT CHANGE THIS
+\setlength{\pdfpagewidth}{8.5in}  % DO NOT CHANGE THIS
+\setlength{\pdfpageheight}{11in}  % DO NOT CHANGE THIS
+%
+% These are recommended to typeset algorithms but not required. See the subsubsection on algorithms. Remove them if you don't have algorithms in your paper.
+\usepackage{algorithm}
+\usepackage{algorithmic}
+
+\pdfinfo{
+/Title (A Verbose Cheat Sheet and Reference for Beginners on using LaTeX)
+}
+
+\setcounter{secnumdepth}{2} %May be changed to 1 or 2 if section numbers are desired.
+
+%%%%  Above are the provided templates. Below are ours.
+
+\title{\ug{0}{VERBOSE}: A \ug{1}{V}erbose Ch\ug{0.8}{e}at Sheet and \ug{0.6}{R}eference for \ug{0.4}{B}eginners \ug{0.6}{o}n u\ug{0.8}{s}ing LaT\ug{1}{e}X}
+\author{Z. C.}
+
+
+\input{macro.tex}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+  \input{abstract.tex}
+\end{abstract}
+
+\textit{Remark: Compiled on \today.}
+
+\setcounter{tocdepth}{3}
+\tableofcontents
+\newpage
+
+
+\section{Introduction}
+\input{intro.tex}
+
+
+\section{Files}
+\input{files.tex}
+
+
+\section{Figures \& Tables}
+\input{figtab.tex}
+
+
+
+\section{Citations \& References}
+\label{sec:citeref}
+\input{citeref.tex}
+
+
+
+\section{Spacing}
+\label{sec:spacing}
+\input{spacing.tex}
+
+
+\section{Commands}
+\input{commands.tex}
+
+
+\section{Math}
+\input{math.tex}
+
+
+\section{Grammar}
+\input{grammar.tex}
+
+
+\section{Writing Together}
+\input{together.tex}
+
+
+\section{Misc}
+\input{misc.tex}
+
+
+\clearpage
+\bibliography{main}
+
+\end{document}
